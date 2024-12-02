@@ -1,10 +1,14 @@
 use bevy::prelude::*;
 use setup::setup;
+use plugins::*;
 
 mod setup;
+mod plugins;
+
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins)
+        .add_plugins(SetupPlugin)
         .add_systems(Startup, setup)
         .run();
 }
