@@ -9,7 +9,7 @@ impl Plugin for SetupPlugin {
             primary_window: Some(Window 
                 {
                 title: "Rust Game".to_string(),
-                resolution: (800., 500.).into(),
+                resolution: (1000., 800.).into(),
                 resizable: false,
                 ..default()
                 }),

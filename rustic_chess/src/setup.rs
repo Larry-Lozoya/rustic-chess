@@ -1,12 +1,12 @@
 use bevy::ecs::component;
 use bevy::prelude::*;
+use bevy::scene::ron::de;
 use bevy::sprite::*;
+use palettes::css::GREEN;
 use crate::components::*;
-
 use bevy::color::*;
 
-pub const BLACK: Srgba = Srgba::rgb(0.,0.,0.);
-pub const WHITE: Srgba = Srgba::rgb(255., 255., 255.);
+pub const WHITE: Srgba = Srgba::rgb(200., 200., 200.);
 
 pub const SQUARE_SIZE: f32 = 64.;
 
@@ -20,7 +20,7 @@ pub fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
 
 pub fn chess_board(mut commands: Commands){
     let black_squares = Sprite{
-        color: BLACK.into(),
+        color: GREEN.into(),
         custom_size: Some(Vec2::splat(SQUARE_SIZE)),
         ..Default::default()
     };
@@ -57,25 +57,191 @@ pub fn setupPieces(
     asset_server: Res<AssetServer>,
     mut texture_atlas_layouts: ResMut<Assets<TextureAtlasLayout>>,
 ){
-    commands.spawn((
-        SpriteBundle {
-            texture: asset_server.load("individual/pawn-black-16x16.png"),
-            transform: Transform::from_xyz(0., 0., 2.),
+    /*
+    White Pawns
+    */
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
             ..default()
         },
-        TextureAtlas {
-            index: 1,
-            layout: texture_atlas_layouts.add(TextureAtlasLayout::from_grid(
-                UVec2::new(34, 24),
-                3,
-                1,
-                None,
-                None,
-            )),
+        transform: Transform::from_xyz(-225., -145., 0.5),
+        ..Default::default()
+    },
+    Pawn,
+    ));
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
         },
-        Pieces,
+        transform: Transform::from_xyz(-160., -145., 0.5),
+        ..Default::default()
+    },
+    Pawn,
+    ));
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(-95., -145., 0.5),
+        ..Default::default()
+    },
+    Pawn,
+    ));
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(-30., -145., 0.5),
+        ..Default::default()
+    },
+    Pawn,
+    ));
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(35., -145., 0.5),
+        ..Default::default()
+    },
+    Pawn,
+    ));
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(95., -145., 0.5),
+        ..Default::default()
+    },
+    Pawn,
+    ));
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(160., -145., 0.5),
+        ..Default::default()
+    },
+    Pawn,
+    ));
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(225., -145., 0.5),
+        ..Default::default()
+    },
+    Pawn,
+    ));
+    /*
+    Black Pawns
+    */
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(-225., 175., 0.5),
+        ..Default::default()
+    },
+    Pawn,
+    ));
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(-160., 175., 0.5),
+        ..Default::default()
+    },
+    Pawn,
+    ));
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(-95., 175., 0.5),
+        ..Default::default()
+    },
+    Pawn,
+    ));
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(-30., 175., 0.5),
+        ..Default::default()
+    },
+    Pawn,
+    ));
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(35., 175., 0.5),
+        ..Default::default()
+    },
+    Pawn,
+    ));
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(95., 175., 0.5),
+        ..Default::default()
+    },
+    Pawn,
+    ));
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(160., 175., 0.5),
+        ..Default::default()
+    },
+    Pawn,
+    ));
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(225., 175., 0.5),
+        ..Default::default()
+    },
+    Pawn,
     ));
 }
+
+
 
 
 

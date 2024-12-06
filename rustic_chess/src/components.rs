@@ -4,4 +4,7 @@ use bevy::prelude::*;
 pub struct Square;
 
 #[derive(Component, Debug)]
-pub struct Pieces;
+pub struct Pawn;
+
+
+

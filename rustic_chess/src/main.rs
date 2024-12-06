@@ -9,10 +9,10 @@ mod components;
 
 fn main() {
     App::new()
-        .add_plugins(DefaultPlugins)
+        .add_plugins(SetupPlugin)
         .add_systems(Startup,setup)
         .add_systems(Startup, chess_board)
-        .add_systems(Startup, setupPieces )
+        .add_systems(Startup, setupPieces)
         .run();
 }
 
