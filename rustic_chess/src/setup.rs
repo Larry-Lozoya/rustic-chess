@@ -71,6 +71,7 @@ pub fn setupPieces(
     },
     Pawn,
     ));
+
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
         sprite: Sprite {
@@ -82,6 +83,7 @@ pub fn setupPieces(
     },
     Pawn,
     ));
+
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
         sprite: Sprite {
@@ -93,6 +95,7 @@ pub fn setupPieces(
     },
     Pawn,
     ));
+
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
         sprite: Sprite {
@@ -104,6 +107,7 @@ pub fn setupPieces(
     },
     Pawn,
     ));
+
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
         sprite: Sprite {
@@ -115,6 +119,7 @@ pub fn setupPieces(
     },
     Pawn,
     ));
+
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
         sprite: Sprite {
@@ -126,6 +131,7 @@ pub fn setupPieces(
     },
     Pawn,
     ));
+
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
         sprite: Sprite {
@@ -137,6 +143,7 @@ pub fn setupPieces(
     },
     Pawn,
     ));
+
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
         sprite: Sprite {
@@ -148,6 +155,7 @@ pub fn setupPieces(
     },
     Pawn,
     ));
+
     /*
     Black Pawns
     */
@@ -162,6 +170,7 @@ pub fn setupPieces(
     },
     Pawn,
     ));
+
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
         sprite: Sprite {
@@ -173,6 +182,7 @@ pub fn setupPieces(
     },
     Pawn,
     ));
+
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
         sprite: Sprite {
@@ -184,6 +194,7 @@ pub fn setupPieces(
     },
     Pawn,
     ));
+
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
         sprite: Sprite {
@@ -195,6 +206,7 @@ pub fn setupPieces(
     },
     Pawn,
     ));
+
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
         sprite: Sprite {
@@ -206,6 +218,7 @@ pub fn setupPieces(
     },
     Pawn,
     ));
+
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
         sprite: Sprite {
@@ -217,6 +230,7 @@ pub fn setupPieces(
     },
     Pawn,
     ));
+
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
         sprite: Sprite {
@@ -228,6 +242,7 @@ pub fn setupPieces(
     },
     Pawn,
     ));
+
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
         sprite: Sprite {
@@ -239,6 +254,96 @@ pub fn setupPieces(
     },
     Pawn,
     ));
+
+    /*
+    White Rook
+     */
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/rook-white-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(-225., -215., 0.5),
+        ..Default::default()
+    },
+    Rook,
+    ));
+
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/rook-white-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(225., -215., 0.5),
+        ..Default::default()
+    },
+    Rook,
+    ));
+
+    /*
+    Black Rook
+     */
+
+     commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/rook-black-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(-225., 235., 0.5),
+        ..Default::default()
+    },
+    Rook,
+    ));
+
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/rook-black-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(225., 235., 0.5),
+        ..Default::default()
+    },
+    Rook,
+));
+
+/*
+White King
+*/
+
+commands.spawn((SpriteBundle{
+    texture: asset_server.load("pieces/individual/king-white-16x16.png"),
+    sprite: Sprite {
+        custom_size: Some(Vec2::new(80., 80.)),
+        ..default()
+    },
+    transform: Transform::from_xyz(35., -225., 0.5),
+    ..Default::default()
+},
+Pawn,
+));
+
+/*
+Black King
+*/
+
+commands.spawn((SpriteBundle{
+    texture: asset_server.load("pieces/individual/king-black-16x16.png"),
+    sprite: Sprite {
+        custom_size: Some(Vec2::new(80., 80.)),
+        ..default()
+    },
+    transform: Transform::from_xyz(35., 225., 0.5),
+    ..Default::default()
+},
+Pawn,
+));
+
+
+
 }
 
 
