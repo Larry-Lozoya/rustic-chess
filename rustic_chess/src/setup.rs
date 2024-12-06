@@ -341,6 +341,136 @@ pub fn setupPieces(
     },
     King,
     ));
+
+    /*
+    white Knights
+    */
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/knight-white-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(-160., -215., 0.5),
+        ..Default::default()
+    },
+    Knight,
+    ));
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/knight-white-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(160., -215., 0.5),
+        ..Default::default()
+    },
+    Knight,
+    ));
+    /*
+    black knights
+     */
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/knight-black-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(-160., 235., 0.5),
+        ..Default::default()
+    },
+    Knight,
+    ));
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/knight-black-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(100., 100.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(160., 235., 0.5),
+        ..Default::default()
+    },
+    Knight,
+    ));
+    /*
+    white bishops
+    */
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/bishop-white-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(90., 90.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(-95., -220., 0.5),
+        ..Default::default()
+    },
+    Bishop,
+    ));
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/bishop-white-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(90., 90.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(95., -220., 0.5),
+        ..Default::default()
+    },
+    Bishop,
+    ));
+    /*
+    Black bishops
+     */
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/bishop-black-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(90., 90.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(-95., 230., 0.5),
+        ..Default::default()
+    },
+    Bishop,
+    ));
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/bishop-black-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(90., 90.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(95., 230., 0.5),
+        ..Default::default()
+    },
+    Bishop,
+    ));
+
+    /*
+    White Queen
+     */
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/queen-white-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(80., 80.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(-30., -220., 0.5),
+        ..Default::default()
+    },
+    Queen,
+    ));
+    /*
+    Black Queen
+     */
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/queen-black-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(80., 80.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(-30., 225., 0.5),
+        ..Default::default()
+    },
+    Queen,
+    ));
 }
 
 
