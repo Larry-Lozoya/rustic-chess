@@ -1,14 +1,16 @@
 use bevy::prelude::*;
-use setup::setup;
+use setup::{chess_board, setup};
 use plugins::*;
 
 mod setup;
 mod plugins;
+mod components;
 
 fn main() {
     App::new()
-        .add_plugins(SetupPlugin)
-        .add_systems(Startup, setup)
+        .add_plugins(DefaultPlugins)
+        .add_systems(Startup,setup)
+        .add_systems(Startup, chess_board)
         .run();
 }
 
