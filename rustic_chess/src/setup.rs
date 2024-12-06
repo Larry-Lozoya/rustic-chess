@@ -308,42 +308,39 @@ pub fn setupPieces(
         ..Default::default()
     },
     Rook,
-));
+    ));
 
-/*
-White King
-*/
+    /*
+    White King
+    */
 
-commands.spawn((SpriteBundle{
-    texture: asset_server.load("pieces/individual/king-white-16x16.png"),
-    sprite: Sprite {
-        custom_size: Some(Vec2::new(80., 80.)),
-        ..default()
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/king-white-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(80., 80.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(35., -225., 0.5),
+        ..Default::default()
     },
-    transform: Transform::from_xyz(35., -225., 0.5),
-    ..Default::default()
-},
-Pawn,
-));
+    King,
+    ));
 
-/*
-Black King
-*/
+    /*
+    Black King
+    */
 
-commands.spawn((SpriteBundle{
-    texture: asset_server.load("pieces/individual/king-black-16x16.png"),
-    sprite: Sprite {
-        custom_size: Some(Vec2::new(80., 80.)),
-        ..default()
+    commands.spawn((SpriteBundle{
+        texture: asset_server.load("pieces/individual/king-black-16x16.png"),
+        sprite: Sprite {
+            custom_size: Some(Vec2::new(80., 80.)),
+            ..default()
+        },
+        transform: Transform::from_xyz(35., 225., 0.5),
+        ..Default::default()
     },
-    transform: Transform::from_xyz(35., 225., 0.5),
-    ..Default::default()
-},
-Pawn,
-));
-
-
-
+    King,
+    ));
 }
 
 
