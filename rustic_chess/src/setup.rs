@@ -52,5 +52,31 @@ pub fn chess_board(mut commands: Commands){
     }
 }
 
+pub fn setupPieces(
+    mut commands: Commands,
+    asset_server: Res<AssetServer>,
+    mut texture_atlas_layouts: ResMut<Assets<TextureAtlasLayout>>,
+){
+    commands.spawn((
+        SpriteBundle {
+            texture: asset_server.load("individual/pawn-black-16x16.png"),
+            transform: Transform::from_xyz(0., 0., 2.),
+            ..default()
+        },
+        TextureAtlas {
+            index: 1,
+            layout: texture_atlas_layouts.add(TextureAtlasLayout::from_grid(
+                UVec2::new(34, 24),
+                3,
+                1,
+                None,
+                None,
+            )),
+        },
+        Pieces,
+    ));
+}
+
+
 
 
