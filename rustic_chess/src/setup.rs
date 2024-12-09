@@ -477,10 +477,20 @@ pub fn setupPieces(
     ));
 }
 
-pub fn mouse_button_events(mut mousebtn_evr: EventReader<MouseButtonInput>,){
+pub fn mouse_button_location(mut mousebtn_evr: EventReader<CursorMoved>,){
     use bevy::input::ButtonState;
 
     for ev in mousebtn_evr.read(){
+        println!("New cursor position: X: {}, Y: {}, in Window ID: {:?}", ev.position.x, ev.position.y, ev.window);
+    }
+}
+
+pub fn mouse_button_events(
+    mut mousebtn_evr: EventReader<MouseButtonInput>,
+) {
+    use bevy::input::ButtonState;
+
+    for ev in mousebtn_evr.read() {
         match ev.state {
             ButtonState::Pressed => {
                 println!("Mouse button press: {:?}", ev.button);
@@ -489,6 +499,13 @@ pub fn mouse_button_events(mut mousebtn_evr: EventReader<MouseButtonInput>,){
                 println!("Mouse button release: {:?}", ev.button);
             }
         }
+    }
+}
+
+
+pub fn greet_people(query: Query<&Pawn>){
+    for name in query.iter(){
+        println!("hello {}", name.0)
     }
 }
 
