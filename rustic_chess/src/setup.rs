@@ -501,22 +501,3 @@ pub fn mouse_button_events(
         }
     }
 }
-
-
-pub fn greet_people(query: Query<&Pawn>){
-    for name in query.iter(){
-        println!("hello {}", name.0)
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
