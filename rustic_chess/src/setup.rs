@@ -1,6 +1,10 @@
-use bevy::ecs::component;
+use bevy::ecs::{component, event};
 use bevy::prelude::*;
 use bevy::scene::ron::de;
+use bevy_mod_picking::*;
+use bevy_mod_picking::events::Pointer;
+use bevy_mod_picking::prelude::On;
+use bevy_mod_picking::events::Click;
 use bevy::sprite::*;
 use palettes::css::GREEN;
 use crate::components::*;
@@ -15,7 +19,6 @@ pub const BOTTOM: f32 = - SQUARE_SIZE * 4. - SQUARE_SIZE / 2.;
 
 pub fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     commands.spawn(Camera2dBundle::default());
-
 }
 
 pub fn chess_board(mut commands: Commands){
@@ -472,6 +475,8 @@ pub fn setupPieces(
     Queen,
     ));
 }
+
+
 
 
 
