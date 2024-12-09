@@ -10,8 +10,8 @@ pub const WHITE: Srgba = Srgba::rgb(200., 200., 200.);
 
 pub const SQUARE_SIZE: f32 = 64.;
 
-pub const LEFT: f32 = -SQUARE_SIZE * 4. - SQUARE_SIZE / 2.;
-pub const BOTTOM: f32 = -SQUARE_SIZE * 4. - SQUARE_SIZE / 2.;
+pub const LEFT: f32 = - SQUARE_SIZE * 4. - SQUARE_SIZE / 2.;
+pub const BOTTOM: f32 = - SQUARE_SIZE * 4. - SQUARE_SIZE / 2.;
 
 pub fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     commands.spawn(Camera2dBundle::default());
