@@ -9,6 +9,7 @@ use bevy::sprite::*;
 use palettes::css::GREEN;
 use crate::components::*;
 use bevy::color::*;
+use bevy::input::mouse::MouseButtonInput;
 
 pub const WHITE: Srgba = Srgba::rgb(200., 200., 200.);
 
@@ -475,6 +476,23 @@ pub fn setupPieces(
     Queen,
     ));
 }
+
+pub fn mouse_button_events(mut mousebtn_evr: EventReader<MouseButtonInput>,){
+    use bevy::input::ButtonState;
+
+    for ev in mousebtn_evr.read(){
+        match ev.state {
+            ButtonState::Pressed => {
+                println!("Mouse button press: {:?}", ev.button);
+            }
+            ButtonState::Released => {
+                println!("Mouse button release: {:?}", ev.button);
+            }
+        }
+    }
+}
+
+
 
 
 

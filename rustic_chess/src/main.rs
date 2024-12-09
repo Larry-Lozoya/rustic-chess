@@ -1,6 +1,6 @@
 use bevy::{prelude::*, transform::commands};
 use bevy_mod_picking::*;
-use setup::{chess_board, setup, setupPieces};
+use setup::{chess_board, setup, setupPieces,mouse_button_events};
 use plugins::*;
 
 mod setup;
@@ -25,7 +25,8 @@ fn main() {
         .add_systems(Startup,setup)
         .add_systems(Startup, chess_board)
         .add_systems(Startup, setupPieces)
-        .add_systems(Update, print_mouse.run_if(resource_changed::<ButtonInput<MouseButton>>),)
+        .add_systems(Update, mouse_button_events)
+        //.add_systems(Update, print_mouse.run_if(resource_changed::<ButtonInput<MouseButton>>),)
         .run();
 }
 
