@@ -6,7 +6,7 @@ use bevy_mod_picking::events::Pointer;
 use bevy_mod_picking::prelude::On;
 use bevy_mod_picking::events::Click;
 use bevy::sprite::*;
-use palettes::css::GREEN;
+use palettes::css::{BLACK, GREEN};
 use crate::components::*;
 use bevy::color::*;
 use bevy::input::mouse::MouseButtonInput;
@@ -20,6 +20,31 @@ pub const BOTTOM: f32 = - SQUARE_SIZE * 4. - SQUARE_SIZE / 2.;
 
 pub fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     commands.spawn(Camera2dBundle::default());
+
+    commands.spawn(NodeBundle{
+        style: Style{
+            width: Val::Px(100.0),
+            height: Val::Px(100.0),
+            justify_content: JustifyContent::Center,
+            align_items: AlignItems::Center,
+            ..default()
+        },
+        background_color: BackgroundColor(bevy::prelude::Color::Srgba(GREEN)),
+        ..default()
+    })
+    .with_children(|parent|{
+        parent.spawn(TextBundle {
+            text: Text::from_section(
+                "Move Pawn",
+                TextStyle {
+                    font_size: 20.0,
+                    color: WHITE.into(),
+                    ..Default::default()
+                },
+            ),
+            ..default()
+        });
+    });
 }
 
 pub fn chess_board(mut commands: Commands){
@@ -74,7 +99,7 @@ pub fn setupPieces(
         ..Default::default()
     },
     Pawn,
-    ));
+    )).insert(Peices::Pawn("white".to_string(), 1.0));
 
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
@@ -501,3 +526,4 @@ pub fn mouse_button_events(
         }
     }
 }
+

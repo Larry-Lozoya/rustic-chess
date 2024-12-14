@@ -1,5 +1,6 @@
 use bevy::{prelude::*, transform::commands, winit::WinitSettings,color::palettes::basic::*};
 use bevy_mod_picking::*;
+use components::{Pawn, Peices};
 use setup::{chess_board, setup, setupPieces,mouse_button_events, mouse_button_location};
 use plugins::*;
 
@@ -24,11 +25,10 @@ fn main() {
         //.add_plugins(DefaultPickingPlugins)
         .insert_resource(WinitSettings::desktop_app())
         .add_systems(Startup, setup)
-        .add_systems(Update, button_system)
         .add_systems(Startup,setup)
         .add_systems(Startup, chess_board)
         .add_systems(Startup, setupPieces)
-
+        .add_systems(Update, button_system)
         //.add_systems(Update, mouse_button_location)
         //.add_systems(Update, mouse_button_events)
         //.add_systems(Update, print_mouse.run_if(resource_changed::<ButtonInput<MouseButton>>),)
@@ -39,7 +39,7 @@ const NORMAL_BUTTON: Color = Color::srgb(0.15, 0.15, 0.15);
 const HOVERED_BUTTON: Color = Color::srgb(0.25, 0.25, 0.25);
 const PRESSED_BUTTON: Color = Color::srgb(0.35, 0.75, 0.35);
 
-fn button_system(
+pub fn button_system(
     mut interaction_query: Query<
         (
             &Interaction,
@@ -49,18 +49,25 @@ fn button_system(
         ),
         (Changed<Interaction>, With<Button>),
     >,
-    mut text_query: Query<&mut Text>,
+    mut text_query: Query<(&mut Transform,  &mut Pawn, &mut Peices)>,
 ) {
     for (interaction, mut color, mut border_color, children) in &mut interaction_query {
         let mut text = text_query.get_mut(children[0]).unwrap();
         match *interaction {
             Interaction::Pressed => {
-                //**text = "Press".to_string();
-                *color = PRESSED_BUTTON.into();
-                border_color.0 = RED.into();
+                println!("DID we press the button");
+                for (mut transform, mut currentPawn, mut peicesNumber) in &mut text_query {
+                    match  *peicesNumber{
+                        Peices::Pawn(_, 1.0) => transform.translation.y += 64.0,
+                        Peices::Pawn(_, _) => todo!()
+                    
+                    }
+                    
+                    transform.translation.y += 64.0;
+                }
+                *color = Color::WHITE.into();
             }
             Interaction::Hovered => {
-                //**text = "Hover".to_string();
                 *color = HOVERED_BUTTON.into();
                 border_color.0 = Color::WHITE;
             }
