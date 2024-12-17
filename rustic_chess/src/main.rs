@@ -45,24 +45,22 @@ pub fn button_system(
             &Interaction,
             &mut BackgroundColor,
             &mut BorderColor,
-            &Children,
         ),
         (Changed<Interaction>, With<Button>),
     >,
-    mut text_query: Query<(&mut Transform,  &mut Pawn, &mut Peices)>,
+    mut pawn_query: Query<(&mut Transform, &Peices), With<Pawn>>,
 ) {
-    for (interaction, mut color, mut border_color, children) in &mut interaction_query {
-        let mut text = text_query.get_mut(children[0]).unwrap();
+    for (interaction, mut color, mut border_color) in &mut interaction_query {
         match *interaction {
             Interaction::Pressed => {
                 println!("DID we press the button");
-                for (mut transform, mut currentPawn, mut peicesNumber) in &mut text_query {
-                    match  *peicesNumber{
-                        Peices::Pawn(_, 1.0) => transform.translation.y += 64.0,
-                        Peices::Pawn(_, _) => todo!()
-                    
+                for (mut transform, peice) in &mut pawn_query {
+                    if let Peices::Pawn(ref pawn_color, _) = peice {
+                        if pawn_color == "white" {
+                            transform.translation.y += 64.0;
+                            break;
+                        }
                     }
-                    
                     transform.translation.y += 64.0;
                 }
                 *color = Color::WHITE.into();

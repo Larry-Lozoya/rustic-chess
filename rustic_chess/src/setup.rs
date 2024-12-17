@@ -6,7 +6,7 @@ use bevy_mod_picking::events::Pointer;
 use bevy_mod_picking::prelude::On;
 use bevy_mod_picking::events::Click;
 use bevy::sprite::*;
-use palettes::css::{BLACK, GREEN};
+use palettes::css::{BLACK, BLUE, GREEN};
 use crate::components::*;
 use bevy::color::*;
 use bevy::input::mouse::MouseButtonInput;
@@ -18,33 +18,61 @@ pub const SQUARE_SIZE: f32 = 64.;
 pub const LEFT: f32 = - SQUARE_SIZE * 4. - SQUARE_SIZE / 2.;
 pub const BOTTOM: f32 = - SQUARE_SIZE * 4. - SQUARE_SIZE / 2.;
 
+
 pub fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     commands.spawn(Camera2dBundle::default());
 
-    commands.spawn(NodeBundle{
-        style: Style{
+    commands.spawn(ButtonBundle {
+        style: Style {
             width: Val::Px(100.0),
             height: Val::Px(100.0),
-            justify_content: JustifyContent::Center,
-            align_items: AlignItems::Center,
+            flex_direction: FlexDirection::Column,
+            justify_content: JustifyContent::FlexStart,
+            align_items: AlignItems::FlexStart,
             ..default()
         },
-        background_color: BackgroundColor(bevy::prelude::Color::Srgba(GREEN)),
+        background_color: BLUE.into(),
         ..default()
     })
-    .with_children(|parent|{
+    .with_children(|parent| {
         parent.spawn(TextBundle {
             text: Text::from_section(
                 "Move Pawn",
                 TextStyle {
                     font_size: 20.0,
                     color: WHITE.into(),
-                    ..Default::default()
+                    font: default(),
                 },
             ),
             ..default()
         });
     });
+
+    commands.spawn(ButtonBundle {
+        style: Style {
+            width: Val::Px(100.0),
+            height: Val::Px(100.0),
+            justify_content: JustifyContent::Center,
+            align_items: AlignItems::FlexEnd,
+            ..default()
+        },
+        background_color: BLUE.into(),
+        ..default()
+    })
+    .with_children(|parent| {
+        parent.spawn(TextBundle {
+            text: Text::from_section(
+                "Move Pawn",
+                TextStyle {
+                    font_size: 20.0,
+                    color: WHITE.into(),
+                    font: default(),
+                },
+            ),
+            ..default()
+        });
+    });
+
 }
 
 pub fn chess_board(mut commands: Commands){
@@ -98,8 +126,7 @@ pub fn setupPieces(
         transform: Transform::from_xyz(-225., -145., 0.5),
         ..Default::default()
     },
-    Pawn,
-    )).insert(Peices::Pawn("white".to_string(), 1.0));
+    Pawn, Peices::Pawn("white".to_string(), 1.0)));
 
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
