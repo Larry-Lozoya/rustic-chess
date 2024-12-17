@@ -36,7 +36,7 @@ pub fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     })
     .with_children(|parent| {
         // First button (Move Pawn)
-        parent.spawn(ButtonBundle {
+        parent.spawn((ButtonBundle {
             style: Style {
                 width: Val::Px(100.0),
                 height: Val::Px(100.0),
@@ -44,7 +44,9 @@ pub fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
             },
             background_color: BLUE.into(),
             ..default()
-        })
+        },
+        Name::new("MoveWhitePawnButton"),
+        ))
         .with_children(|parent| {
             parent.spawn(TextBundle {
                 text: Text::from_section(
@@ -60,7 +62,7 @@ pub fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
         });
     
         // Second button (Move NEW Pawn)
-        parent.spawn(ButtonBundle {
+        parent.spawn((ButtonBundle {
             style: Style {
                 width: Val::Px(100.0),
                 height: Val::Px(100.0),
@@ -68,7 +70,9 @@ pub fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
             },
             background_color: BLUE.into(),
             ..default()
-        })
+        },Name::new("MoveBlackPawnButton"),
+
+        ))
         .with_children(|parent| {
             parent.spawn(TextBundle {
                 text: Text::from_section(
