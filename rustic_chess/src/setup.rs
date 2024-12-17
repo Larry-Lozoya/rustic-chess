@@ -22,57 +22,66 @@ pub const BOTTOM: f32 = - SQUARE_SIZE * 4. - SQUARE_SIZE / 2.;
 pub fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     commands.spawn(Camera2dBundle::default());
 
-    commands.spawn(ButtonBundle {
+    commands.spawn(NodeBundle {
         style: Style {
-            width: Val::Px(100.0),
-            height: Val::Px(100.0),
-            flex_direction: FlexDirection::Column,
+            flex_direction: FlexDirection::Row,
             justify_content: JustifyContent::FlexStart,
-            align_items: AlignItems::FlexStart,
-            ..default()
-        },
-        background_color: BLUE.into(),
-        ..default()
-    })
-    .with_children(|parent| {
-        parent.spawn(TextBundle {
-            text: Text::from_section(
-                "Move Pawn",
-                TextStyle {
-                    font_size: 20.0,
-                    color: WHITE.into(),
-                    font: default(),
-                },
-            ),
-            ..default()
-        });
-    });
-
-    commands.spawn(ButtonBundle {
-        style: Style {
-            width: Val::Px(100.0),
+            align_items: AlignItems::Center,
+            width: Val::Px(400.0),
             height: Val::Px(100.0),
-            justify_content: JustifyContent::Center,
-            align_items: AlignItems::FlexEnd,
             ..default()
         },
-        background_color: BLUE.into(),
         ..default()
     })
     .with_children(|parent| {
-        parent.spawn(TextBundle {
-            text: Text::from_section(
-                "Move Pawn",
-                TextStyle {
-                    font_size: 20.0,
-                    color: WHITE.into(),
-                    font: default(),
-                },
-            ),
+        // First button (Move Pawn)
+        parent.spawn(ButtonBundle {
+            style: Style {
+                width: Val::Px(100.0),
+                height: Val::Px(100.0),
+                ..default()
+            },
+            background_color: BLUE.into(),
             ..default()
+        })
+        .with_children(|parent| {
+            parent.spawn(TextBundle {
+                text: Text::from_section(
+                    "Move Pawn",
+                    TextStyle {
+                        font_size: 20.0,
+                        color: WHITE.into(),
+                        font: default(),
+                    },
+                ),
+                ..default()
+            });
+        });
+    
+        // Second button (Move NEW Pawn)
+        parent.spawn(ButtonBundle {
+            style: Style {
+                width: Val::Px(100.0),
+                height: Val::Px(100.0),
+                ..default()
+            },
+            background_color: BLUE.into(),
+            ..default()
+        })
+        .with_children(|parent| {
+            parent.spawn(TextBundle {
+                text: Text::from_section(
+                    "Move NEW Pawn",
+                    TextStyle {
+                        font_size: 20.0,
+                        color: WHITE.into(),
+                        font: default(),
+                    },
+                ),
+                ..default()
+            });
         });
     });
-
 }
 
 pub fn chess_board(mut commands: Commands){
@@ -224,8 +233,7 @@ pub fn setupPieces(
         transform: Transform::from_xyz(-225., 175., 0.5),
         ..Default::default()
     },
-    Pawn,
-    ));
+    Pawn, Peices::Pawn("black".to_string(), 2.0)));
 
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),

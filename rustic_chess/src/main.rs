@@ -1,3 +1,5 @@
+use std::thread::panicking;
+
 use bevy::{prelude::*, transform::commands, winit::WinitSettings,color::palettes::basic::*};
 use bevy_mod_picking::*;
 use components::{Pawn, Peices};
@@ -29,6 +31,7 @@ fn main() {
         .add_systems(Startup, chess_board)
         .add_systems(Startup, setupPieces)
         .add_systems(Update, button_system)
+        .add_systems(Update, button_system_for_new_pawn)
         //.add_systems(Update, mouse_button_location)
         //.add_systems(Update, mouse_button_events)
         //.add_systems(Update, print_mouse.run_if(resource_changed::<ButtonInput<MouseButton>>),)
@@ -55,9 +58,10 @@ pub fn button_system(
             Interaction::Pressed => {
                 println!("DID we press the button");
                 for (mut transform, peice) in &mut pawn_query {
-                    if let Peices::Pawn(ref pawn_color, _) = peice {
-                        if pawn_color == "white" {
+                    if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
+                        if pawn_color == "white" && *pawn_num == 1.0{
                             transform.translation.y += 64.0;
+                            println!("Moving pawn: {}", pawn_color);
                             break;
                         }
                     }
@@ -78,8 +82,44 @@ pub fn button_system(
     }
 }
 
-fn print_mouse(mouse: Res<ButtonInput<MouseButton>>){
-    println!("Mouse: {:?}", mouse.get_pressed().collect::<Vec<_>>());
+pub fn button_system_for_new_pawn(
+    mut interaction_query: Query<
+        (
+            &Interaction,
+            &mut BackgroundColor,
+            &mut BorderColor,
+        ),
+        (Changed<Interaction>, With<Button>),
+    >,
+    mut new_pawn_query: Query<(&mut Transform, &Peices), With<Pawn>>,
+) {
+    for (interaction, mut color, mut border_color) in &mut interaction_query {
+        match *interaction {
+            Interaction::Pressed => {
+                println!("DID we press the button");
+                for (mut transform, peice) in &mut new_pawn_query {
+                    if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
+                        if pawn_color == "black" && *pawn_num == 2.0 {
+                            transform.translation.y -= 64.0;
+                            println!("Moving pawn: {}", pawn_color);
+                            break;
+                        }
+                    }
+                    transform.translation.y -= 64.0;
+                }
+                *color = Color::WHITE.into();
+            }
+            Interaction::Hovered => {
+                *color = HOVERED_BUTTON.into();
+                border_color.0 = Color::WHITE;
+            }
+            Interaction::None => {
+                //**text = "Button".to_string();
+                *color = NORMAL_BUTTON.into();
+                border_color.0 = Color::BLACK;
+            }
+        }
+    }
 }
 
 
