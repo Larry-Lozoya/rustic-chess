@@ -25,6 +25,7 @@ fn main() {
     App::new()
         .add_plugins(SetupPlugin)
         //.add_plugins(DefaultPickingPlugins)
+        .insert_resource(ClearColor(Color::rgb(0.2, 0.2, 20.2)))
         .insert_resource(WinitSettings::desktop_app())
         .add_systems(Startup, setup)
         .add_systems(Startup,setup)
