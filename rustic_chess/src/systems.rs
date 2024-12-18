@@ -4,7 +4,15 @@ use crate::components::*;
 const NORMAL_BUTTON: Color = Color::srgb(0.15, 0.15, 0.15);
 const HOVERED_BUTTON: Color = Color::srgb(0.25, 0.25, 0.25);
 
-
+/*
+    This is the system we designed to keep trck on which button has been pressed.
+    We have an interaction_query of type Query which takes in an Interaction, Name, background color and border color.
+    The name is sent in from the button being pressed. This would be the "MoveFirstWhitePawn" and the Interaction is sent in depending on what the user is doing.
+    We have an if statment set up that checks which button is pressed and depending on that button it will move (transform) the pawn.
+    If the pawn is white we move it a positive distance and if the pawn is black we move it a negative distance. 
+    This is the same code for each pawn but each button takes a different name and ID. The IDs are also passed once the name has been passed through.
+    This only applies if the user clicks on a button. If a user hovers or is not on a button then the button does not do anything.    
+ */
 pub fn button_system(
     mut interaction_query: Query<
         (

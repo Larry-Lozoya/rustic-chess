@@ -21,6 +21,16 @@ pub const SQUARE_SIZE: f32 = 64.;
 pub const LEFT: f32 = - SQUARE_SIZE * 4. - SQUARE_SIZE / 2.;
 pub const BOTTOM: f32 = - SQUARE_SIZE * 4. - SQUARE_SIZE / 2.;
 
+
+/*
+    We use the NodeBundle to spawn a continer for the buttons.
+    This NodeBundle takes in specific pramaters and we only set the ones we needed while setting the rest to default.
+    Inside of this NodeBundle we spawn a ButtonBundle. This is something that was built in on Bevy.
+    Within each of our buttons we have set our style elements and assing a name.
+    The names repersent what the button will be doing.
+    Each button is spawned with a specific name and a text value that tells the user what the button will do.
+    This is the same for each button. 
+*/
 pub fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     commands.spawn(Camera2dBundle::default());
     
@@ -476,6 +486,16 @@ pub fn setupPieces(
     asset_server: Res<AssetServer>,
     mut texture_atlas_layouts: ResMut<Assets<TextureAtlasLayout>>,
 ){
+
+
+    /*
+        Each Piece is its own entity meaning all the pieces are seperate from each other.
+        The commands.spawn takes in an asset that we specify with a file path leading it to the specific image we want to use.
+        Within this spawn we pass the Pawn struct referencing the Pieces enum while passing in the data needed.
+        The data needed for each pice is a color (white or black) and an ID. So the white pices are odd numbers and the black pieces are even numbers.
+        Each piece has a png that is scaled to fit within the squares on the board. 
+     */
+
     /*
     White Pawns
     */
