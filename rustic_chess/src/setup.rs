@@ -28,14 +28,13 @@ pub fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
             flex_direction: FlexDirection::Row,
             justify_content: JustifyContent::FlexStart,
             align_items: AlignItems::Center,
-            width: Val::Px(400.0),
+            width: Val::Px(600.0),
             height: Val::Px(100.0),
             ..default()
         },
         ..default()
     })
     .with_children(|parent| {
-        // First button (Move Pawn)
         parent.spawn((ButtonBundle {
             style: Style {
                 width: Val::Px(100.0),
@@ -45,12 +44,12 @@ pub fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
             background_color: BLUE.into(),
             ..default()
         },
-        Name::new("MoveWhitePawnButton"),
+        Name::new("MoveFirstWhitePawn"),
         ))
         .with_children(|parent| {
             parent.spawn(TextBundle {
                 text: Text::from_section(
-                    "Move Pawn",
+                    "Move W P1",
                     TextStyle {
                         font_size: 20.0,
                         color: WHITE.into(),
@@ -60,8 +59,7 @@ pub fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
                 ..default()
             });
         });
-    
-        // Second button (Move NEW Pawn)
+
         parent.spawn((ButtonBundle {
             style: Style {
                 width: Val::Px(100.0),
@@ -70,13 +68,13 @@ pub fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
             },
             background_color: BLUE.into(),
             ..default()
-        },Name::new("MoveBlackPawnButton"),
+        },Name::new("MoveSecondWhitePawn"),
 
         ))
         .with_children(|parent| {
             parent.spawn(TextBundle {
                 text: Text::from_section(
-                    "Move NEW Pawn",
+                    "Move W P2",
                     TextStyle {
                         font_size: 20.0,
                         color: WHITE.into(),
@@ -86,7 +84,355 @@ pub fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
                 ..default()
             });
         });
-    });
+
+        parent.spawn((ButtonBundle {
+            style: Style {
+                width: Val::Px(100.0),
+                height: Val::Px(100.0),
+                ..default()
+            },
+            background_color: BLUE.into(),
+            ..default()
+        },Name::new("MoveThirdWhitePawn"),
+
+        ))
+        .with_children(|parent| {
+            parent.spawn(TextBundle {
+                text: Text::from_section(
+                    "Move W P3",
+                    TextStyle {
+                        font_size: 20.0,
+                        color: WHITE.into(),
+                        font: default(),
+                    },
+                ),
+                ..default()
+            });
+        });
+
+        parent.spawn((ButtonBundle {
+            style: Style {
+                width: Val::Px(100.0),
+                height: Val::Px(100.0),
+                ..default()
+            },
+            background_color: BLUE.into(),
+            ..default()
+        },Name::new("MoveForthWhitePawn"),
+
+        ))
+        .with_children(|parent| {
+            parent.spawn(TextBundle {
+                text: Text::from_section(
+                    "Move W P4",
+                    TextStyle {
+                        font_size: 20.0,
+                        color: WHITE.into(),
+                        font: default(),
+                    },
+                ),
+                ..default()
+            });
+        });
+        parent.spawn((ButtonBundle {
+            style: Style {
+                width: Val::Px(100.0),
+                height: Val::Px(100.0),
+                ..default()
+            },
+            background_color: BLUE.into(),
+            ..default()
+        },Name::new("MoveFifthWhitePawn"),
+
+        ))
+        .with_children(|parent| {
+            parent.spawn(TextBundle {
+                text: Text::from_section(
+                    "Move W P5",
+                    TextStyle {
+                        font_size: 20.0,
+                        color: WHITE.into(),
+                        font: default(),
+                    },
+                ),
+                ..default()
+            });
+        });
+        parent.spawn((ButtonBundle {
+            style: Style {
+                width: Val::Px(100.0),
+                height: Val::Px(100.0),
+                ..default()
+            },
+            background_color: BLUE.into(),
+            ..default()
+        },Name::new("MoveSixWhitePawn"),
+
+        ))
+        .with_children(|parent| {
+            parent.spawn(TextBundle {
+                text: Text::from_section(
+                    "Move W P6",
+                    TextStyle {
+                        font_size: 20.0,
+                        color: WHITE.into(),
+                        font: default(),
+                    },
+                ),
+                ..default()
+            });
+        });
+
+        parent.spawn((ButtonBundle {
+            style: Style {
+                width: Val::Px(100.0),
+                height: Val::Px(100.0),
+                ..default()
+            },
+            background_color: BLUE.into(),
+            ..default()
+        },Name::new("MoveSevenWhitePawn"),
+
+        ))
+        .with_children(|parent| {
+            parent.spawn(TextBundle {
+                text: Text::from_section(
+                    "Move W P7",
+                    TextStyle {
+                        font_size: 20.0,
+                        color: WHITE.into(),
+                        font: default(),
+                    },
+                ),
+                ..default()
+            });
+        });
+
+        parent.spawn((ButtonBundle {
+            style: Style {
+                width: Val::Px(100.0),
+                height: Val::Px(100.0),
+                ..default()
+            },
+            background_color: BLUE.into(),
+            ..default()
+        },Name::new("MoveEightWhitePawn"),
+
+        ))
+        .with_children(|parent| {
+            parent.spawn(TextBundle {
+                text: Text::from_section(
+                    "Move W P8",
+                    TextStyle {
+                        font_size: 20.0,
+                        color: WHITE.into(),
+                        font: default(),
+                    },
+                ),
+                ..default()
+            });
+        });
+
+        parent.spawn((ButtonBundle {
+            style: Style {
+                width: Val::Px(100.0),
+                height: Val::Px(100.0),
+                ..default()
+            },
+            background_color: BLUE.into(),
+            ..default()
+        },Name::new("MoveFirstBlackPawn"),
+
+        ))
+        .with_children(|parent| {
+            parent.spawn(TextBundle {
+                text: Text::from_section(
+                    "Move B P1",
+                    TextStyle {
+                        font_size: 20.0,
+                        color: WHITE.into(),
+                        font: default(),
+                    },
+                ),
+                ..default()
+            });
+        });
+
+        parent.spawn((ButtonBundle {
+            style: Style {
+                width: Val::Px(100.0),
+                height: Val::Px(100.0),
+                ..default()
+            },
+            background_color: BLUE.into(),
+            ..default()
+        },Name::new("MoveSecondBlackPawn"),
+
+        ))
+        .with_children(|parent| {
+            parent.spawn(TextBundle {
+                text: Text::from_section(
+                    "Move B P2",
+                    TextStyle {
+                        font_size: 20.0,
+                        color: WHITE.into(),
+                        font: default(),
+                    },
+                ),
+                ..default()
+            });
+        });
+
+        parent.spawn((ButtonBundle {
+            style: Style {
+                width: Val::Px(100.0),
+                height: Val::Px(100.0),
+                ..default()
+            },
+            background_color: BLUE.into(),
+            ..default()
+        },Name::new("MoveThirdBlackPawn"),
+
+        ))
+        .with_children(|parent| {
+            parent.spawn(TextBundle {
+                text: Text::from_section(
+                    "Move B P3",
+                    TextStyle {
+                        font_size: 20.0,
+                        color: WHITE.into(),
+                        font: default(),
+                    },
+                ),
+                ..default()
+            });
+        });
+
+        parent.spawn((ButtonBundle {
+            style: Style {
+                width: Val::Px(100.0),
+                height: Val::Px(100.0),
+                ..default()
+            },
+            background_color: BLUE.into(),
+            ..default()
+        },Name::new("MoveForthBlackPawn"),
+
+        ))
+        .with_children(|parent| {
+            parent.spawn(TextBundle {
+                text: Text::from_section(
+                    "Move B P4",
+                    TextStyle {
+                        font_size: 20.0,
+                        color: WHITE.into(),
+                        font: default(),
+                    },
+                ),
+                ..default()
+            });
+        });
+
+        parent.spawn((ButtonBundle {
+            style: Style {
+                width: Val::Px(100.0),
+                height: Val::Px(100.0),
+                ..default()
+            },
+            background_color: BLUE.into(),
+            ..default()
+        },Name::new("MoveFifthBlackPawn"),
+
+        ))
+        .with_children(|parent| {
+            parent.spawn(TextBundle {
+                text: Text::from_section(
+                    "Move B P5",
+                    TextStyle {
+                        font_size: 20.0,
+                        color: WHITE.into(),
+                        font: default(),
+                    },
+                ),
+                ..default()
+            });
+        });
+
+        parent.spawn((ButtonBundle {
+            style: Style {
+                width: Val::Px(100.0),
+                height: Val::Px(100.0),
+                ..default()
+            },
+            background_color: BLUE.into(),
+            ..default()
+        },Name::new("MoveSixBlackPawn"),
+
+        ))
+        .with_children(|parent| {
+            parent.spawn(TextBundle {
+                text: Text::from_section(
+                    "Move B P6",
+                    TextStyle {
+                        font_size: 20.0,
+                        color: WHITE.into(),
+                        font: default(),
+                    },
+                ),
+                ..default()
+            });
+        });
+
+        parent.spawn((ButtonBundle {
+            style: Style {
+                width: Val::Px(100.0),
+                height: Val::Px(100.0),
+                ..default()
+            },
+            background_color: BLUE.into(),
+            ..default()
+        },Name::new("MoveSevenBlackPawn"),
+
+        ))
+        .with_children(|parent| {
+            parent.spawn(TextBundle {
+                text: Text::from_section(
+                    "Move B P7",
+                    TextStyle {
+                        font_size: 20.0,
+                        color: WHITE.into(),
+                        font: default(),
+                    },
+                ),
+                ..default()
+            });
+        });
+
+        parent.spawn((ButtonBundle {
+            style: Style {
+                width: Val::Px(100.0),
+                height: Val::Px(100.0),
+                ..default()
+            },
+            background_color: BLUE.into(),
+            ..default()
+        },Name::new("MoveEightBlackPawn"),
+
+        ))
+        .with_children(|parent| {
+            parent.spawn(TextBundle {
+                text: Text::from_section(
+                    "Move B P8",
+                    TextStyle {
+                        font_size: 20.0,
+                        color: WHITE.into(),
+                        font: default(),
+                    },
+                ),
+                ..default()
+            });
+        });
+    });   
 }
 
 pub fn chess_board(mut commands: Commands){
@@ -131,6 +477,7 @@ pub fn setupPieces(
     /*
     White Pawns
     */
+    //PAWN 1
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
         sprite: Sprite {
@@ -142,6 +489,8 @@ pub fn setupPieces(
     },
     Pawn, Peices::Pawn("white".to_string(), 1.0)));
 
+    
+    //PAWN 2
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
         sprite: Sprite {
@@ -151,9 +500,9 @@ pub fn setupPieces(
         transform: Transform::from_xyz(-160., -145., 0.5),
         ..Default::default()
     },
-    Pawn,
-    ));
+    Pawn, Peices::Pawn("white".to_string(), 3.0)));
 
+    //PAWN 3
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
         sprite: Sprite {
@@ -163,9 +512,10 @@ pub fn setupPieces(
         transform: Transform::from_xyz(-95., -145., 0.5),
         ..Default::default()
     },
-    Pawn,
-    ));
+    Pawn, Peices::Pawn("white".to_string(), 5.0)));
 
+
+    //PAWN 4
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
         sprite: Sprite {
@@ -175,9 +525,9 @@ pub fn setupPieces(
         transform: Transform::from_xyz(-30., -145., 0.5),
         ..Default::default()
     },
-    Pawn,
-    ));
+    Pawn, Peices::Pawn("white".to_string(), 7.0)));
 
+    //PAWN 5
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
         sprite: Sprite {
@@ -187,9 +537,10 @@ pub fn setupPieces(
         transform: Transform::from_xyz(35., -145., 0.5),
         ..Default::default()
     },
-    Pawn,
-    ));
+    Pawn, Peices::Pawn("white".to_string(), 9.0)));
 
+
+    //PAWN 6
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
         sprite: Sprite {
@@ -199,9 +550,9 @@ pub fn setupPieces(
         transform: Transform::from_xyz(95., -145., 0.5),
         ..Default::default()
     },
-    Pawn,
-    ));
+    Pawn, Peices::Pawn("white".to_string(), 11.0)));
 
+    //PAWN 7
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
         sprite: Sprite {
@@ -211,9 +562,9 @@ pub fn setupPieces(
         transform: Transform::from_xyz(160., -145., 0.5),
         ..Default::default()
     },
-    Pawn,
-    ));
+    Pawn, Peices::Pawn("white".to_string(), 13.0)));
 
+    //PAWN 8
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-white-16x16.png"),
         sprite: Sprite {
@@ -223,8 +574,7 @@ pub fn setupPieces(
         transform: Transform::from_xyz(225., -145., 0.5),
         ..Default::default()
     },
-    Pawn,
-    ));
+    Pawn, Peices::Pawn("white".to_string(), 15.0)));
 
     /*
     Black Pawns
@@ -249,8 +599,7 @@ pub fn setupPieces(
         transform: Transform::from_xyz(-160., 175., 0.5),
         ..Default::default()
     },
-    Pawn,
-    ));
+    Pawn, Peices::Pawn("black".to_string(), 4.0)));
 
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
@@ -261,8 +610,7 @@ pub fn setupPieces(
         transform: Transform::from_xyz(-95., 175., 0.5),
         ..Default::default()
     },
-    Pawn,
-    ));
+    Pawn, Peices::Pawn("black".to_string(), 6.0)));
 
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
@@ -273,8 +621,7 @@ pub fn setupPieces(
         transform: Transform::from_xyz(-30., 175., 0.5),
         ..Default::default()
     },
-    Pawn,
-    ));
+    Pawn, Peices::Pawn("black".to_string(), 8.0)));
 
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
@@ -285,8 +632,7 @@ pub fn setupPieces(
         transform: Transform::from_xyz(35., 175., 0.5),
         ..Default::default()
     },
-    Pawn,
-    ));
+    Pawn, Peices::Pawn("black".to_string(), 10.0)));
 
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
@@ -297,8 +643,7 @@ pub fn setupPieces(
         transform: Transform::from_xyz(95., 175., 0.5),
         ..Default::default()
     },
-    Pawn,
-    ));
+    Pawn, Peices::Pawn("black".to_string(), 12.0)));
 
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
@@ -309,8 +654,7 @@ pub fn setupPieces(
         transform: Transform::from_xyz(160., 175., 0.5),
         ..Default::default()
     },
-    Pawn,
-    ));
+    Pawn, Peices::Pawn("black".to_string(), 14.0)));
 
     commands.spawn((SpriteBundle{
         texture: asset_server.load("pieces/individual/pawn-black-16x16.png"),
@@ -321,8 +665,7 @@ pub fn setupPieces(
         transform: Transform::from_xyz(225., 175., 0.5),
         ..Default::default()
     },
-    Pawn,
-    ));
+    Pawn, Peices::Pawn("black".to_string(), 16.0)));
 
     /*
     White Rook
