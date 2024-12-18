@@ -19,8 +19,17 @@ mod components;
         https://docs.rs/bevy_mod_picking/latest/bevy_mod_picking/
         https://caballerocoll.com/blog/bevy-chess-tutorial/
         https://docs.rs/mouse_position/latest/mouse_position/mouse_position/struct.Position.html
+
+        --BUTTON LINK:
+        https://bevyengine.org/examples/ui-user-interface/button/
+
+        --OTHER LINKS WE USED:
+        https://bevyengine.org/examples-webgpu/camera/2d-top-down-camera/
+        https://caballerocoll.com/blog/bevy-chess-tutorial/
     */
 
+    
+    //Adding our plugins so the game can start and have a UI.
 fn main() {
     App::new()
         .add_plugins(SetupPlugin)
@@ -32,6 +41,7 @@ fn main() {
         .run();
 }
 
+//Setting const variables for user intraction of buttons.
 const NORMAL_BUTTON: Color = Color::srgb(0.15, 0.15, 0.15);
 const HOVERED_BUTTON: Color = Color::srgb(0.25, 0.25, 0.25);
 const PRESSED_BUTTON: Color = Color::srgb(0.35, 0.75, 0.35);
@@ -229,10 +239,3 @@ pub fn button_system(
         }
     }
 }
-
-
-
-
-
-//https://bevyengine.org/examples-webgpu/camera/2d-top-down-camera/
-//https://caballerocoll.com/blog/bevy-chess-tutorial/
