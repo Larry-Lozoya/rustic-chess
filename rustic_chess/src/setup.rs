@@ -884,29 +884,3 @@ pub fn setupPieces(
     Queen,
     ));
 }
-
-pub fn mouse_button_location(mut mousebtn_evr: EventReader<CursorMoved>,){
-    use bevy::input::ButtonState;
-
-    for ev in mousebtn_evr.read(){
-        println!("New cursor position: X: {}, Y: {}, in Window ID: {:?}", ev.position.x, ev.position.y, ev.window);
-    }
-}
-
-pub fn mouse_button_events(
-    mut mousebtn_evr: EventReader<MouseButtonInput>,
-) {
-    use bevy::input::ButtonState;
-
-    for ev in mousebtn_evr.read() {
-        match ev.state {
-            ButtonState::Pressed => {
-                println!("Mouse button press: {:?}", ev.button);
-            }
-            ButtonState::Released => {
-                println!("Mouse button release: {:?}", ev.button);
-            }
-        }
-    }
-}
-

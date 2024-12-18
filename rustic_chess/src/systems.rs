@@ -3,7 +3,7 @@ use crate::components::*;
 
 const NORMAL_BUTTON: Color = Color::srgb(0.15, 0.15, 0.15);
 const HOVERED_BUTTON: Color = Color::srgb(0.25, 0.25, 0.25);
-const PRESSED_BUTTON: Color = Color::srgb(0.35, 0.75, 0.35);
+
 
 pub fn button_system(
     mut interaction_query: Query<
@@ -20,8 +20,7 @@ pub fn button_system(
     for (interaction, name, mut color, mut border_color) in &mut interaction_query {
         match *interaction {
             Interaction::Pressed => {
-                if name.as_str()== "MoveWhitePawnButton" {
-                    println!("DID we press the button");
+                if name.as_str()== "MoveFirstWhitePawn" {
                     for (mut transform, peice) in &mut pawn_query {
                         if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
                             if pawn_color == "white" && *pawn_num == 1.0{
@@ -31,11 +30,153 @@ pub fn button_system(
                             }
                         }
                     }
-                }else if name.as_str() == "MoveBlackPawnButton"{
-                    println!("DID we press the button");
+                }else if name.as_str() == "MoveSecondWhitePawn"{
+                    for (mut transform, peice) in &mut pawn_query {
+                        if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
+                            if pawn_color == "white" && *pawn_num == 3.0{
+                                transform.translation.y += 64.0;
+                                println!("Moving pawn: {}", pawn_color);
+                                break;
+                            }
+                        }
+                    }
+                }else if name.as_str() == "MoveThirdWhitePawn"{
+                    for (mut transform, peice) in &mut pawn_query {
+                        if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
+                            if pawn_color == "white" && *pawn_num == 5.0{
+                                transform.translation.y += 64.0;
+                                println!("Moving pawn: {}", pawn_color);
+                                break;
+                            }
+                        }
+                    }
+                }else if name.as_str() == "MoveForthWhitePawn"{
+                    for (mut transform, peice) in &mut pawn_query {
+                        if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
+                            if pawn_color == "white" && *pawn_num == 7.0{
+                                transform.translation.y += 64.0;
+                                println!("Moving pawn: {}", pawn_color);
+                                break;
+                            }
+                        }
+                    }
+                }else if name.as_str() == "MoveFifthWhitePawn"{
+                    for (mut transform, peice) in &mut pawn_query {
+                        if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
+                            if pawn_color == "white" && *pawn_num == 9.0{
+                                transform.translation.y += 64.0;
+                                println!("Moving pawn: {}", pawn_color);
+                                break;
+                            }
+                        }
+                    }
+                }else if name.as_str() == "MoveSixWhitePawn"{
+                    for (mut transform, peice) in &mut pawn_query {
+                        if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
+                            if pawn_color == "white" && *pawn_num == 11.0{
+                                transform.translation.y += 64.0;
+                                println!("Moving pawn: {}", pawn_color);
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if name.as_str() == "MoveSevenWhitePawn"{
+                    for (mut transform, peice) in &mut pawn_query {
+                        if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
+                            if pawn_color == "white" && *pawn_num == 13.0{
+                                transform.translation.y += 64.0;
+                                println!("Moving pawn: {}", pawn_color);
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if name.as_str() == "MoveEightWhitePawn"{
+                    for (mut transform, peice) in &mut pawn_query {
+                        if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
+                            if pawn_color == "white" && *pawn_num == 15.0{
+                                transform.translation.y += 64.0;
+                                println!("Moving pawn: {}", pawn_color);
+                                break;
+                            }
+                        }
+                    }
+                }else if name.as_str() == "MoveFirstBlackPawn"{
                     for (mut transform, peice) in &mut pawn_query {
                         if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
                             if pawn_color == "black" && *pawn_num == 2.0{
+                                transform.translation.y -= 64.0;
+                                println!("Moving pawn: {}", pawn_color);
+                                break;
+                            }
+                        }
+                    }
+                }else if name.as_str() == "MoveSecondBlackPawn"{
+                    for (mut transform, peice) in &mut pawn_query {
+                        if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
+                            if pawn_color == "black" && *pawn_num == 4.0{
+                                transform.translation.y -= 64.0;
+                                println!("Moving pawn: {}", pawn_color);
+                                break;
+                            }
+                        }
+                    }
+                }else if name.as_str() == "MoveThirdBlackPawn"{
+                    for (mut transform, peice) in &mut pawn_query {
+                        if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
+                            if pawn_color == "black" && *pawn_num == 6.0{
+                                transform.translation.y -= 64.0;
+                                println!("Moving pawn: {}", pawn_color);
+                                break;
+                            }
+                        }
+                    }
+                }else if name.as_str() == "MoveForthBlackPawn"{
+                    for (mut transform, peice) in &mut pawn_query {
+                        if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
+                            if pawn_color == "black" && *pawn_num == 8.0{
+                                transform.translation.y -= 64.0;
+                                println!("Moving pawn: {}", pawn_color);
+                                break;
+                            }
+                        }
+                    }
+                }else if name.as_str() == "MoveFifthBlackPawn"{
+                    for (mut transform, peice) in &mut pawn_query {
+                        if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
+                            if pawn_color == "black" && *pawn_num == 10.0{
+                                transform.translation.y -= 64.0;
+                                println!("Moving pawn: {}", pawn_color);
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if name.as_str() == "MoveSixBlackPawn"{
+                    for (mut transform, peice) in &mut pawn_query {
+                        if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
+                            if pawn_color == "black" && *pawn_num == 12.0{
+                                transform.translation.y -= 64.0;
+                                println!("Moving pawn: {}", pawn_color);
+                                break;
+                            }
+                        }
+                    }
+                }else if name.as_str() == "MoveSevenBlackPawn"{
+                    for (mut transform, peice) in &mut pawn_query {
+                        if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
+                            if pawn_color == "black" && *pawn_num == 14.0{
+                                transform.translation.y -= 64.0;
+                                println!("Moving pawn: {}", pawn_color);
+                                break;
+                            }
+                        }
+                    }
+                }else if name.as_str() == "MoveEightBlackPawn"{
+                    for (mut transform, peice) in &mut pawn_query {
+                        if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
+                            if pawn_color == "black" && *pawn_num == 16.0{
                                 transform.translation.y -= 64.0;
                                 println!("Moving pawn: {}", pawn_color);
                                 break;
