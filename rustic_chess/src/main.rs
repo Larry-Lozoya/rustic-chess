@@ -22,11 +22,15 @@ mod systems;
         https://caballerocoll.com/blog/bevy-chess-tutorial/
         https://docs.rs/mouse_position/latest/mouse_position/mouse_position/struct.Position.html
 
+        --BUTTON--
+        https://bevyengine.org/examples/ui-user-interface/button/
 
+        --OTHER LINKS WE USED--
         //https://bevyengine.org/examples-webgpu/camera/2d-top-down-camera/
         //https://caballerocoll.com/blog/bevy-chess-tutorial/
     */
 
+    //Adding our systems to the game so that the game can be played.
 fn main() {
     App::new()
         .add_plugins(SetupPlugin)

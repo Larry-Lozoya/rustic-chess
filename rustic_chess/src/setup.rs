@@ -11,13 +11,15 @@ use crate::components::*;
 use bevy::color::*;
 use bevy::input::mouse::MouseButtonInput;
 
+//Setting the color whtie, Bevy also has built in colors like black, blue, red, and green.
 pub const WHITE: Srgba = Srgba::rgb(200., 200., 200.);
 
+//Creating a variable to hold the square size.
 pub const SQUARE_SIZE: f32 = 64.;
 
+//Setting the size of each square.
 pub const LEFT: f32 = - SQUARE_SIZE * 4. - SQUARE_SIZE / 2.;
 pub const BOTTOM: f32 = - SQUARE_SIZE * 4. - SQUARE_SIZE / 2.;
-
 
 pub fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     commands.spawn(Camera2dBundle::default());
