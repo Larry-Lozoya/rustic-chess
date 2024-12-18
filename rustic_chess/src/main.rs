@@ -52,7 +52,6 @@ pub fn button_system(
         match *interaction {
             Interaction::Pressed => {
                 if name.as_str()== "MoveFirstWhitePawn" {
-                    println!("DID we press the button");
                     for (mut transform, peice) in &mut pawn_query {
                         if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
                             if pawn_color == "white" && *pawn_num == 1.0{
@@ -63,7 +62,6 @@ pub fn button_system(
                         }
                     }
                 }else if name.as_str() == "MoveSecondWhitePawn"{
-                    println!("DID we press the button");
                     for (mut transform, peice) in &mut pawn_query {
                         if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
                             if pawn_color == "white" && *pawn_num == 3.0{
@@ -74,7 +72,6 @@ pub fn button_system(
                         }
                     }
                 }else if name.as_str() == "MoveThirdWhitePawn"{
-                    println!("DID we press the button");
                     for (mut transform, peice) in &mut pawn_query {
                         if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
                             if pawn_color == "white" && *pawn_num == 5.0{
@@ -85,7 +82,6 @@ pub fn button_system(
                         }
                     }
                 }else if name.as_str() == "MoveForthWhitePawn"{
-                    println!("DID we press the button");
                     for (mut transform, peice) in &mut pawn_query {
                         if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
                             if pawn_color == "white" && *pawn_num == 7.0{
@@ -96,7 +92,6 @@ pub fn button_system(
                         }
                     }
                 }else if name.as_str() == "MoveFifthWhitePawn"{
-                    println!("DID we press the button");
                     for (mut transform, peice) in &mut pawn_query {
                         if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
                             if pawn_color == "white" && *pawn_num == 9.0{
@@ -107,7 +102,6 @@ pub fn button_system(
                         }
                     }
                 }else if name.as_str() == "MoveSixWhitePawn"{
-                    println!("DID we press the button");
                     for (mut transform, peice) in &mut pawn_query {
                         if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
                             if pawn_color == "white" && *pawn_num == 11.0{
@@ -119,7 +113,6 @@ pub fn button_system(
                     }
                 }
                 else if name.as_str() == "MoveSevenWhitePawn"{
-                    println!("DID we press the button");
                     for (mut transform, peice) in &mut pawn_query {
                         if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
                             if pawn_color == "white" && *pawn_num == 13.0{
@@ -131,7 +124,6 @@ pub fn button_system(
                     }
                 }
                 else if name.as_str() == "MoveEightWhitePawn"{
-                    println!("DID we press the button");
                     for (mut transform, peice) in &mut pawn_query {
                         if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
                             if pawn_color == "white" && *pawn_num == 15.0{
@@ -142,7 +134,6 @@ pub fn button_system(
                         }
                     }
                 }else if name.as_str() == "MoveFirstBlackPawn"{
-                    println!("DID we press the button");
                     for (mut transform, peice) in &mut pawn_query {
                         if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
                             if pawn_color == "black" && *pawn_num == 2.0{
@@ -153,7 +144,6 @@ pub fn button_system(
                         }
                     }
                 }else if name.as_str() == "MoveSecondBlackPawn"{
-                    println!("DID we press the button");
                     for (mut transform, peice) in &mut pawn_query {
                         if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
                             if pawn_color == "black" && *pawn_num == 4.0{
@@ -164,7 +154,6 @@ pub fn button_system(
                         }
                     }
                 }else if name.as_str() == "MoveThirdBlackPawn"{
-                    println!("DID we press the button");
                     for (mut transform, peice) in &mut pawn_query {
                         if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
                             if pawn_color == "black" && *pawn_num == 6.0{
@@ -175,7 +164,6 @@ pub fn button_system(
                         }
                     }
                 }else if name.as_str() == "MoveForthBlackPawn"{
-                    println!("DID we press the button");
                     for (mut transform, peice) in &mut pawn_query {
                         if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
                             if pawn_color == "black" && *pawn_num == 8.0{
@@ -186,7 +174,6 @@ pub fn button_system(
                         }
                     }
                 }else if name.as_str() == "MoveFifthBlackPawn"{
-                    println!("DID we press the button");
                     for (mut transform, peice) in &mut pawn_query {
                         if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
                             if pawn_color == "black" && *pawn_num == 10.0{
@@ -198,7 +185,6 @@ pub fn button_system(
                     }
                 }
                 else if name.as_str() == "MoveSixBlackPawn"{
-                    println!("DID we press the button");
                     for (mut transform, peice) in &mut pawn_query {
                         if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
                             if pawn_color == "black" && *pawn_num == 12.0{
@@ -209,7 +195,6 @@ pub fn button_system(
                         }
                     }
                 }else if name.as_str() == "MoveSevenBlackPawn"{
-                    println!("DID we press the button");
                     for (mut transform, peice) in &mut pawn_query {
                         if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
                             if pawn_color == "black" && *pawn_num == 14.0{
@@ -220,7 +205,6 @@ pub fn button_system(
                         }
                     }
                 }else if name.as_str() == "MoveEightBlackPawn"{
-                    println!("DID we press the button");
                     for (mut transform, peice) in &mut pawn_query {
                         if let Peices::Pawn(ref pawn_color, ref pawn_num) = peice {
                             if pawn_color == "black" && *pawn_num == 16.0{
