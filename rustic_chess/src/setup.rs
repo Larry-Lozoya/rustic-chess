@@ -447,8 +447,18 @@ pub fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     });   
 }
 
+/*
+Here is where we are spawing in our chess board
+*/
+
 pub fn chess_board(mut commands: Commands){
-    let black_squares = Sprite{
+    /*
+    This is where we are making the sprite of our squares 
+    where we are having a color for green squares and then we have 
+    a color for our white squares we are giving each square a custom size using the Vec2::splat 
+    where our SQUARE_SIZE is of size 64.0
+    */
+    let green_squares = Sprite{
         color: GREEN.into(),
         custom_size: Some(Vec2::splat(SQUARE_SIZE)),
         ..Default::default()
@@ -459,14 +469,33 @@ pub fn chess_board(mut commands: Commands){
         ..Default::default()
     };
     
+    /*
+    This is where we are going to be spawning in our squares
+    */
+
+    // for i in 1 to 9 since we have an 8 by 8 grid
     for i in 1..9 {
+        // println!("{} *******", i);
         for j in 1..9 {
+            // println!("{}", j);
+            // The reason for the double for loop is because we want to be going row by row
+            // So the first for loop is our first row then "j" is our column
+            // If i for example is row 1 and j is col 1 then if we do 1+1 = 2 and if we mod this we get 0 
+            // Meaning this would be our white square if we get a remander from i+j then that means we have a green square
+            // This is just so we get odd then even and untill the inner for loop is done and we move on the i = row 2
             let sprite = if (i + j) % 2 == 0 {
-                black_squares.clone()
+                green_squares.clone()
             } else {
                 white_squares.clone()
             };
-
+            
+            // This is where we are spawning in our squares where we have an x and a y
+            // The way we set this up though is that we go from bottom to top
+            // x_t means that how far left we are where we start at the -64 * 4 - 64 / 2 
+            // This ends up giving us -288 and the bottom is -224
+            // After this we want to spawn in our actual square with the approriate color on that specific location
+            // When the index increases we do the same thing and our values only shift to the left by the square size so bottom wont change until
+            // you reach your next index where we will be higher than before.
             let x_t = LEFT + j as f32 * SQUARE_SIZE;
             let y_t = BOTTOM + i as f32 * SQUARE_SIZE;
             commands.spawn((
