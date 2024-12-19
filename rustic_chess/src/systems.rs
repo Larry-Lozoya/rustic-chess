@@ -5,7 +5,7 @@ const NORMAL_BUTTON: Color = Color::srgb(0.15, 0.15, 0.15);
 const HOVERED_BUTTON: Color = Color::srgb(0.25, 0.25, 0.25);
 
 /*
-    This is the system we designed to keep trck on which button has been pressed.
+    This is the system we designed to keep track on which button has been pressed.
     We have an interaction_query of type Query which takes in an Interaction, Name, background color and border color.
     The name is sent in from the button being pressed. This would be the "MoveFirstWhitePawn" and the Interaction is sent in depending on what the user is doing.
     We have an if statment set up that checks which button is pressed and depending on that button it will move (transform) the pawn.
