@@ -6,7 +6,6 @@ Rustic Chess is an multiplayer chess game built in Rust, leveraging the Bevy gam
 - **Pass And Play:** Play locally with a friend by sharing a single device.
 - **Modern Interface:** Built with Bevy for smooth, high-performance graphics.
 - **Intuitive Gameplay:** Features standard chess rules and timers, possibly a leaderboard.
-- **Online Multiplayer:** TBD.
 
 ## Installation
 
@@ -34,12 +33,13 @@ Rustic Chess is an multiplayer chess game built in Rust, leveraging the Bevy gam
    cargo run
 
 ## Running the Game
+**This was what the goal was..**
 **Once the game is built and running, follow these instructions to start playing:**
 
 ### Local Play (Pass and Play):
 - After starting the game with `cargo run`, you'll see the chessboard displayed.
 - Player 1 (White) makes the first move by clicking/tapping on a piece and selecting a valid destination square.
-- Pass the device to Player 2 (Black) for their turn and the chessboard will flip.
+- Pass the device to Player 2 (Black) for their turn.
 - Continue alternating turns until the game ends (checkmate, stalemate, draw, or flagging).
 
 ### Game Controls:
@@ -50,7 +50,6 @@ Rustic Chess is an multiplayer chess game built in Rust, leveraging the Bevy gam
 ## TechStack
 - **Programing Language:** Rust
 - **Game Engine:** Bevy
-- **Serialization/Deserialization:** Serde
 - **Dependency Management:** Cargo
 
 ## Author Information
