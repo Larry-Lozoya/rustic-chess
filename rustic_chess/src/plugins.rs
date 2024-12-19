@@ -2,6 +2,10 @@ use bevy::prelude::*;
 
 pub struct SetupPlugin;
 
+/*
+    Used this plugin to creat our game window and set the title of the window.
+*/
+
 impl Plugin for SetupPlugin {
     fn build(&self, app: &mut App) { 
         app.add_plugins(DefaultPlugins.set(WindowPlugin
